@@ -1,0 +1,71 @@
+img {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  display: inline-block;
+  width: 23%;
+  height: 23%;
+  float: left;
+  vertical-align: center;
+}
+
+
+#inli {
+
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  padding-right: 1em;
+  margin-right: 10em;
+
+}
+
+
+#ad {
+
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  padding-right: 1em;
+    display: inline-block;
+}
+
+axax {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  padding-right: 1em;
+    display: inline-block;
+}
+
+}
+
+button {
+  background:none!important;
+color:inherit;
+border:none;
+padding:0!important;
+font: inherit;
+/*border is optional*/
+border-bottom:1px solid #444;
+cursor: pointer;
+
+}
+
+
+
+.go {
+  color: #333;
+  background-color: #99ff99;
+  border-color: #ccc;
+  font-weight: bold;
+
+}
+
+button.but {
+  border: none;
+  background-color: #ffffff;
+  color: red;
+  font-weight: bold;
+  background: none;
+  letter-spacing: 1px;
+}

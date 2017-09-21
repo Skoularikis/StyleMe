@@ -1,0 +1,46 @@
+<!--<div class="row">
+
+  <article [ngStyle]="{'margin-left': '1em'}" class="panel panel-default" >
+    <div class="panel-body">
+    <strong> <button [ngStyle]="{'color' : '#0066cc', 'display' : 'inline-block'}" type="button" (click)="gotoProfile()">{{comment.firstName}} {{comment.lastName}}</button></strong><h6 *ngIf="comment?.status == 'pro'" [ngStyle]="{'display' : 'inline-block', 'margin-left' : '1em', 'color' : '#0066cc'}" class="pro">PRO</h6>
+      <br>
+        <div class="go" [ngStyle]="{'margin-top': '1em', 'margin-left': '0.5em'}">
+      {{comment.content}}
+        </div>
+        <div class="line"></div>
+
+
+      <div class="config">
+        <button [ngStyle]="{'font-size' : '14px', 'color' : '#0066cc'}" [ngClass]="{ 'colorRed ' : comment?.likedbyuser.indexOf(globalapp.localStorageItem()) > -1, 'colorBlue' : comment?.likedbyuser.indexOf(globalapp.localStorageItem()) == -1 }" type="button" (click)="addCommentLike()"> Like <span class="badge" ><strong>{{comment?.likes}} </strong></span></button>
+
+          <a [ngStyle]="{'color' : '#0066cc'}" *ngIf="belongsToUser()" (click)="onEdit()">Edit</a>
+          <a [ngStyle]="{'color' : '#0066cc'}" *ngIf="belongsToUser()" (click)="onDelete()">Delete</a>
+      </div>
+    </div>
+  </article>
+
+</div>
+-->
+
+<div class="row">
+
+  <article class="panel panel-default" [ngStyle]="{'margin-left': '1em', 'border-style' : 'groove', 'margin-top' : '-1em' }">
+    <div class="panel-body">
+      <strong><button type="button" id="b" class="btn btn-link" (click)="gotoProfile()"> {{comment?.firstName}} {{comment?.lastName}}</button>
+      <h6 *ngIf="comment?.status == 'pro'" class="pro">PRO</h6></strong>
+      <br>
+      <div class="go" [ngStyle]="{'margin-top': '0.3em', 'margin-right': '0.5em', 'margin-bottom': '-1em'}">
+        {{comment?.content}}
+      </div>
+              <div class="line"></div>
+
+      <div class="config">
+        <button [ngStyle]="{'font-size' : '16px'}" [ngClass]="{ 'colorRed ' : comment?.likedbyuser.indexOf(globalapp.localStorageItem()) > -1, 'colorBlue' : comment?.likedbyuser.indexOf(globalapp.localStorageItem()) == -1 }" type="button" (click)="addCommentLike()"> Like <span class="badge" ><strong>{{comment?.likes}} </strong></span></button>
+      <a [ngStyle]="{'color' : '#0066cc'}" *ngIf="belongsToUser()" (click)="onEdit(comment)">Edit</a>
+      <a [ngStyle]="{'color' : '#0066cc'}" *ngIf="belongsToUser()" (click)="onDelete(comment)">Delete</a>
+        </div>
+
+
+    </div>
+  </article>
+  </div>

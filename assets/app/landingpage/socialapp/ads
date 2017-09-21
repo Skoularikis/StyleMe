@@ -1,0 +1,103 @@
+<form [formGroup]="myForm">
+  <input formControlName="state"
+         [typeahead]="states"
+         typeaheadOptionsLimit="7"
+         typeaheadMinLength="0"
+         placeholder="Typeahead inside a form"
+         class="form-control">
+</form>
+
+
+<li [routerLinkActive]="isActive"><a [routerLink]="['/auth', 'signup']">Signup</a></li>
+
+
+
+[ngStyle]="{backgroundColor: colored, 'font-size': '16px'}"
+[ngStyle]="{'color': '#ffffff', 'font-weight': 'bold'}"
+
+
+
+
+<li [ngClass]="{'active' : isActive[0]}">
+<a (click)="navigateToLandingPage()"  >
+Landing Page
+</a>
+</li>
+   <li [ngClass]="{'active' : isActive[1]}"><a  (click)="navigateToFindAJob()">Find a job </a></li>
+      <li [ngClass]="{'active' : isActive[2]}" ><a  (click)="navigateToUserProfile()">Your profile</a></li>
+  <li [routerLinkActive]="['active']" ><a (click)="navigateToLogOut()" [routerLink]="['/auth','logout']">Logout</a></li>
+
+
+  <li *ngFor="let tab of tabs; let index = index" [ngClass]="{'active' : tab.id == selected}" >
+   <a (click)="navChanged(tab.id)">
+    {{tab.title}}
+    </a>
+
+
+ [ngStyle]="{backgroundColor: '#66ffff', 'color': '#ffffff', 'font-weight': 'bold'}"
+[ngStyle]="{ 'font-weight': 'bold'}"
+
+
+
+
+
+<li *ngFor="let like of likedbyuser; let index = index" [ngClass]="{'colorred' : like == globalapp.localStorageItem()}"  >
+
+
+
+[ngClass]="{'colored' : likedbyuser.indexOf(this.globalapp.localStorageItem()) > -1, 'btn btn-link outline' : likedbyuser.indexOf(this.globalapp.localStorageItem()) == -1 }
+[ngStyle]="{'color':colorme}"
+
+
+
+
+
+
+() => {
+  this.friendsService.getFriend(this.id.destination._value.id)
+      .subscribe(
+        (friend: Friend) => {
+          this.friend=friend
+          console.log(friend)
+        }
+    );
+  }
+
+
+
+
+
+
+
+
+
+
+
+  if (result === null) {
+    const friend = new Friend(
+      result.firstName,
+      result.lastName,
+      result.fullName,
+      'null',
+      'null',
+      'null',
+      result.user,
+      undefined,
+      'null'
+
+    );
+    this.friend = friend;
+    return friend;
+  } else {
+  const friend = new Friend(result.firstName,
+  result.lastName,
+  result.fullName,
+  result.status,
+  result.statususer,
+  result.friend,
+  result.user,
+  result.created_at,
+  result._id);
+  this.friend = friend;
+  return friend;
+}

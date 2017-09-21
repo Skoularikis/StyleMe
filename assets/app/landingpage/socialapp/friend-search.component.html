@@ -1,0 +1,10 @@
+
+
+
+<input #searchBox id="search-box" (keyup)="search(searchBox.value)" class="form-control" placeholder="Search for people"/>
+<div>
+<div *ngFor="let user of users | async"
+     class="form-control" (click)=gotoDetail(user)>
+    <button class="go">{{user.firstName}} {{user.lastName}}  </button>
+</div>
+</div>

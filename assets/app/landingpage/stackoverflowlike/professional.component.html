@@ -1,0 +1,19 @@
+<div class="notgetover"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h3>Hire someone professional to make your Style better!!</h3>
+
+      <app-pro-search></app-pro-search>
+  <div *ngIf="prousers.length == 0" [ngStyle]="{'margin-top':'10%'}">
+    <h3> No professional user is enrolled!! </h3>
+  </div>
+  <div class="notgetover"></div>
+                        <app-user-sorted-byrating *ngFor="let user of prousers"
+                                              [user]="user"
+                                              >
+                                            </app-user-sorted-byrating>
+
+        </div>
+      </div>
+            </div>

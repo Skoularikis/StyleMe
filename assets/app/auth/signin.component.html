@@ -1,0 +1,26 @@
+<div class="notgetover"></div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 text-center">
+      <h2 style="text-align:center;">Be yourself when you go out</h2>
+      <br>
+    </div>
+<div class="col-md-8 col-md-offset-2">
+    <div class="thumbnail">
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" class="form-control" formControlName="email">
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" class="form-control" formControlName="password">
+    </div>
+    <button class="btn btn-primary"
+            type="submit"
+            [disabled]="!myForm.valid">Sign In</button>
+  </form>
+  </div>
+</div>
+</div>
+</div>

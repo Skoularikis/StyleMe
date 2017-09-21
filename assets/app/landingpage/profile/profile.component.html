@@ -1,0 +1,114 @@
+
+<div class="notgetover"></div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-1">
+     <div class="thumbnail" id="ad" >
+
+             <img *ngIf="profileimg?.content == null"src="/assets/images/profile.png" alt="add profiel image"/>
+
+           <img *ngIf="profileimg?.content != null" [attr.src]="profileimg?.content" alt="hasimage"/>
+
+
+
+   </div>
+   </div>
+    <div class="col-md-4" id="asd">
+        <h3 [ngStyle]="{'display' : 'inline-block'}">{{profileimg?.firstName}} {{profileimg?.lastName}}</h3><h6 *ngIf="profileimg?.status" [ngStyle]="{'display' : 'inline-block', 'margin-left' : '1em', 'color': '#0066cc', 'letter-spacing': '0.1em'}" class="pro">(PRO)</h6>
+
+  <!--    <div *ngIf="friend?.userId==globalapp.localStorageItem()" > -->
+<!--  <div *ngIf="profileimg?.userId!==globalapp.localStorageItem()" >
+
+
+      <div *ngIf="friend?.status=='null'">
+      <button  type="button" class="btn btn-primary" (click)="onAddFriend()">Add to friends</button>
+      </div>
+     <div *ngIf="friend?.status =='pending' && friend?.statusUser == 'requested'" >
+        <button  type="button" class="btn btn-primary" >Request Sent <span class="glyphicon glyphicon-ok"></span></button>
+      <button  type="button" class="btn btn-primary" (click)="onDelete()">Cancel Request <span class="glyphicon glyphicon-remove"></span></button>
+    </div>
+    <div *ngIf="friend?.status =='accepted' && friend?.statusUser =='accepted'" >
+        <button  type="button" class="btn btn-primary">Friends <span class="glyphicon glyphicon-user"></span> </button>
+          <button  type="button" class="btn btn-primary" (click)="onDelete()"> Unfriend <strong> {{profileimg?.firstName}} {{profileimg?.lastName}}</strong> <span class="glyphicon glyphicon-remove"></span></button>
+    </div>
+
+
+  </div>
+
+  <div *ngIf="friendFromOtherUser?.friendId===globalapp.localStorageItem()" >
+     <div *ngIf="profileimg?.userId!==globalapp.localStorageItem()" >
+       <div *ngIf="friendFromOtherUser?.friendId===globalapp.localStorageItem()" >
+        <div *ngIf="friendFromOtherUser?.status =='pending' && friendFromOtherUser?.statusUser == 'requested'" >
+             <button  type="button" class="btn btn-primary" (click)="onAcceptFriend()">Accept<strong> {{profileimg?.firstName}} {{profileimg?.lastName}}</strong> to friends</button>
+             <button  type="button" class="btn btn-primary" (click)="onDelete()"> Reject  <span class="glyphicon glyphicon-remove"></span></button>
+        </div>
+        <div *ngIf="friendFromOtherUser?.status =='accepted' && friendFromOtherUser?.statusUser =='accepted'" >
+          <button  type="button" class="btn btn-primary">Friends <span class="glyphicon glyphicon-user"> </span></button>
+          <button  type="button" class="btn btn-primary" (click)="onDelete()"> Unfriend {{profileimg?.firstName}} {{profileimg?.lastName}} <span class="glyphicon glyphicon-remove"></span></button>
+     </div>
+     </div>
+     </div> -->
+
+    <div *ngIf="profileimg?.userId!==globalapp.localStorageItem()" >
+
+        <div *ngIf="user?.friends.indexOf(friend?.friendIdBack) > -1 || user?.friends.indexOf(friendFromOtherUser?.friendIdBack) > -1">
+          <div *ngIf="friend?.status =='pending' && friend?.statusUser == 'requested'" >
+             <button  type="button" class="btn btn-primary" >Request Sent <span class="glyphicon glyphicon-ok"></span></button>
+           <button  type="button" class="btn btn-primary" (click)="onDelete()">Cancel Request <span class="glyphicon glyphicon-remove"></span></button>
+         </div>
+
+      <div *ngIf="friend?.status =='accepted' && friend?.statusUser =='accepted'" >
+             <button  type="button" class="btn btn-primary">Friends <span class="glyphicon glyphicon-user"></span> </button>
+               <button  type="button" class="btn btn-primary" (click)="onDelete()"> Unfriend <strong> {{profileimg?.firstName}} {{profileimg?.lastName}}</strong> <span class="glyphicon glyphicon-remove"></span></button>
+        </div>
+         <div *ngIf="friendFromOtherUser?.status =='accepted' && friendFromOtherUser?.statusUser =='accepted'" >
+           <button  type="button" class="btn btn-primary">Friends <span class="glyphicon glyphicon-user"> </span></button>
+           <button  type="button" class="btn btn-primary" (click)="onDelete()"> Unfriend {{profileimg?.firstName}} {{profileimg?.lastName}} <span class="glyphicon glyphicon-remove"></span></button>
+      </div>
+
+        </div>
+        <div *ngIf="user?.friends.indexOf(friend?.friendIdBack) == -1 || user?.friends.indexOf(friendFromOtherUser?.friendIdBack) == -1">
+          <div *ngIf="friend?.status=='null' && friendFromOtherUser?.status =='null'" >
+          <button  type="button" class="btn btn-primary" (click)="onAddFriend()">Add to friends</button>
+          </div>
+          <div *ngIf="friendFromOtherUser?.status =='pending' && friendFromOtherUser?.statusUser == 'requested'" >
+               <button  type="button" class="btn btn-primary" (click)="onAcceptFriend()">Accept<strong> {{profileimg?.firstName}} {{profileimg?.lastName}}</strong> to friends</button>
+               <button  type="button" class="btn btn-primary" (click)="onDelete()"> Reject  <span class="glyphicon glyphicon-remove"></span></button>
+          </div>
+
+        </div>
+
+    </div>
+
+
+    </div>
+
+
+
+  </div>
+    </div>
+
+
+
+
+<div class="row">
+  <nav class="col-md-8 col-md-offset-1" >
+    <div class="btn-group btn-group-justified" [ngStyle]="{'width':'70%'}">
+      <div class="btn-group">
+      <button class="btn btn-primary btn-md" role="button" (click)="setTab(1)">Photos</button>
+    </div>
+        <div class="btn-group">
+      <button class="btn btn-primary btn-md" role="button" (click)="setTab(2)"  style="margin-left: 1em;">Friends</button>
+        </div>
+        <div class="btn-group" *ngIf="profileimg?.status == 'pro' && profileimg?.userId === globalapp.localStorageItem()" >
+      <button class="btn btn-primary btn-md" role="button" (click)="setTab(3)"  style="margin-left: 2em;">Job Description</button>
+        </div>
+    </div>
+  </nav>
+</div>
+<div [ngSwitch]="tab">
+     <app-user-images *ngSwitchCase="1">Tab content 1</app-user-images>
+     <app-user-friends *ngSwitchCase="2" >Tab content 2</app-user-friends>
+     <app-job-desc *ngSwitchCase="3">Tab content 3</app-job-desc>
+   </div>
+<app-comment-image> </app-comment-image>

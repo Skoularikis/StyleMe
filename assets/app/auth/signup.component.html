@@ -1,0 +1,51 @@
+<div class="notgetover"></div>
+<div class="container-fluid go">
+
+
+
+
+    <div class="row">
+  <div class="starter-template txt">
+
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <h1>Welcome to StyleMe</h1>
+       <h3>Find your personal style</h3>
+
+
+
+        </div>
+          </div>
+
+
+  </div>
+<div class="col-md-8 col-md-offset-2">
+
+  <br>
+  <div class="thumbnail">
+
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input type="text" id="firstName" class="form-control" formControlName="firstName">
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input type="text" id="lastName" class="form-control" formControlName="lastName">
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" class="form-control" formControlName="email">
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" class="form-control" formControlName="password">
+    </div>
+    <h5 [ngStyle]="{'color' : '#0066cc'}" (click)="linkToProSignUp()"> Are you a professional? Click here! </h5>
+    <button class="btn btn-primary"
+            type="submit"
+            [disabled]="!myForm.valid">Submit</button>
+  </form>
+</div>
+</div>
+
+<img [src]="fullImagePath" alt="">

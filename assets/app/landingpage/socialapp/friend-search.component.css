@@ -1,0 +1,33 @@
+.notgetover {
+  margin-top: 7em;
+}
+.search-result{
+border-bottom: 1px solid gray;
+border-left: 1px solid gray;
+border-right: 1px solid gray;
+width:295px;
+height: 20px;
+padding: 5px;
+background-color: white;
+cursor: pointer;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+
+}
+
+#search-box{
+width: 300px;
+height: 30px;
+
+}
+.go {
+  border: none;
+  color: #000000;
+  background-color: #ffffff;
+
+      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 1px;
+      font-size: 12px;
+}
